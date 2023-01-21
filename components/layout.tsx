@@ -8,11 +8,15 @@ type Props = {
 }
 
 const Layout = ({ preview, children }: Props) => {
+  const isAlert: boolean = false;
   return (
     <>
       <Meta />
       <div className="min-h-screen">
-        <Alert preview={preview} />
+        {isAlert ?
+          <Alert preview={preview} /> :
+          <div className='noAlert'></div>
+        }
         <main>{children}</main>
       </div>
       <Footer />
